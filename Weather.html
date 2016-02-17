@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src=”jquery-1.11.2.js”></script> 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnGetWeather').click(function() {
+                var requestData = $('#txtCity').val() + ',' + $('#txtCountry').val();
+                var resultElement = $('#resultDiv');
+                    
+                $.ajax({
+                    url: 'http://api.openweathermap.org/data/2.5/weather',
+                    method: 'get',
+                    data: { q:requestData },
+                    dataType: 'json',
+                    success: function(data) {
+if (data.message != null)
+{
+   resultElement.html(data.message);
+}
+else {
+
+resultElement.html('Weather: ' + data.weather[0].main + '<br/>' + 'Description: ' + data.weather[0].description);
+                    }
+                });
+            });
+        });
+</script>
+</head>
+<body>
+          <li> <a href = "index.html" > Return to Homepage </a> </li>
+          <h1>Weather</h1>
+          <p>Enter City and Country information to see weather conditions for that area</p>
+    <table>
+        <tr>
+            <td>City</td>
+            <td><input type="text" id="txtCity" /></td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td><input type="text" id="txtcountry" /></td>
+        </tr>
+    </table>
+<input type="button" id="btnGetWeather" value="Get Weather Data"/>
+<br /><br />
+<div id="resultDiv">
+</div>
+</body>
+</html>
