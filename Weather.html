@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <title>Weather</title>
     <script src=”jquery-1.11.2.js”></script> 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -28,10 +29,19 @@ resultElement.html('Weather: ' + data.weather[0].main + '<br/>' + 'Description: 
 </script>
 </head>
 <body>
-          <li> <a href = "index.html" > Return to Homepage </a> </li>
+          <link rel="stylesheet" type="text/css" href="Background.css" />
+      <ul> 
+        <li><a href = "index.html">Homepage</a><li>    
+        <li><a href = "reflections.html">Reflections & Teachings</a></li> 
+        <li><a href = "JavaScriptObjects.html">JavaScript Objects</a></li>
+        <li><a class="active" href = "Weather.html">Weather</a></li>
+        <li><a href = "Animation.html">Animation</a></li>
+        <li><a href = "Media.html">Media</a></li> 
+        </ul>
           <h1>Weather</h1>
+          <div>
           <p>Enter City and Country information to see weather conditions for that area</p>
-    <table>
+          <table>
         <tr>
             <td>City</td>
             <td><input type="text" id="txtCity" /></td>
@@ -43,7 +53,7 @@ resultElement.html('Weather: ' + data.weather[0].main + '<br/>' + 'Description: 
     </table>
 <input type="button" id="btnGetWeather" value="Get Weather Data"/>
 <br /><br />
-<div id="resultDiv">
+<p id="resultDiv"></p>
 </div>
 </body>
 </html>
