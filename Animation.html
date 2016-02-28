@@ -2,50 +2,81 @@
 
 <html> 
     <head>
-      <style> 
-div {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    position: relative;
-    -webkit-animation-name: example; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
-    -webkit-animation-iteration-count: 3; /* Chrome, Safari, Opera */
-    animation-name: example;
-    animation-duration: 4s;
-    animation-iteration-count: 3;
-}
-
-/* Chrome, Safari, Opera */
-@-webkit-keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-}
-
-/* Standard syntax */
-@keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-}
-</style>
+          <title>Animation</title>
+          <style>p.alert {
+                  font-size: 30px;
+                  color: red;
+                  font-weight: bold;
+                  font: Impact;
+              }
+             </style>
     </head>
-       <body> 
-    <link rel="stylesheet" type="text/css" href="animation.css" />
-   <script src="animation.js"></script>
-             <li> <a href = "index.html" > Return to Homepage </a> </li>
-   <h1> Animation </h1>
-<p>
- Welcome to the Animation page! Watch me animate using CSS!
-</p>
+        <body> 
+            <link rel="stylesheet" type="text/css" href="animation.css" />
+            <link rel="stylesheet" type="text/css" href="Background.css" />
+            <script src="animation.js"></script>
+                <ul> 
+                    <li><a href = "index.html">Homepage</a><li>    
+                    <li><a href = "reflections.html">Reflections & Teachings</a></li> 
+                    <li><a href = "JavaScriptObjects.html">JavaScript Objects</a></li>
+                    <li><a href = "Weather.html">Weather</a></li>
+                    <li><a class ="active" href = "Animation.html">Animation</a></li>
+                    <li><a href = "Media.html">Media</a></li> 
+                </ul> 
+   
+            <h1> Animation </h1>
+            <p class="slidein">Welcome to the animation page!</p>
+            <br><hr>
 
+            <div>
+                <button>Button</button>
+                <p> This is a transitional button. 
+                    <br>(This button is just for show, it doesn't do anything) </p>
+            </div>
+            <hr>
+            <div>
+            <p> Click the button to see some JavaScript Animation
+            <br><button onclick="myMove()">Click Me</button> 
+            </p>
 
-<div></div>
+<div id ="myContainer">
+<div id ="myAnimation"></div>
+</div>
 
-</body>
+<script>
+function myMove() {
+  var elem = document.getElementById("myAnimation");   
+  var pos = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+            </div>
+            <hr>
+            <div>
+                   <button class="red" onclick="alert()">Don't Click</button>  
+                   <p class="alert" id="demo"></p>
+            </div>
+                
+<script>
+function alert() {
+    var person = prompt("Please enter your name", "George");
+    
+    if (person != null) {
+        document.getElementById("demo").innerHTML =
+        person + ", HOW DARE YOU CLICK THE BUTTON WHEN YOU WERE TOLD NOT TO!!";
+    }
+}
+</script>
+
+    </body>
 </html>
+
