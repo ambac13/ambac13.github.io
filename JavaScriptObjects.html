@@ -2,24 +2,28 @@
 
 <html>
     <head>
-        <style>
-            table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            }
-            th, td {
-            padding: 5px;
-            text-align: left;
-            }
-        </style>
+        <title>JavaScript Objects</title>
     </head>
 
 <body>
-   <li> <a href = "index.html" > Return to Homepage </a> </li>
+        <link rel="stylesheet" type="text/css" href="Background.css" />
+         <link rel="stylesheet" type="text/css" href="JavaScriptObjects.css" />
+        <ul> 
+            <li><a href = "index.html">Homepage</a><li>    
+            <li><a href = "reflections.html">Reflections & Teachings</a></li> 
+            <li><a class="active" href = "JavaScriptObjects.html">JavaScript Objects</a></li>
+            <li><a href = "Weather.html">Weather</a></li>
+            <li><a href = "Animation.html">Animation</a></li>
+            <li><a href = "Media.html">Media</a></li> 
+        </ul>
+    
     <h1>Creating JavaScript Objects</h1>
-    <p id="demo"></p>
-
-    <script>
+  
+    <!-- Simple name and properties -->
+    <div><p id="amber"></p>
+        <p id="chris"></p>
+    <p class="info">This sentence was made by an object name "person".</p></div>
+        <script>
     
         var person={
         firstName : "Amber",
@@ -27,28 +31,40 @@
         age       : 21,
         eyeColor  : "brown"
         };
+        
+          var person2={
+        firstName : "Christopher",
+        lastName  : "Martinez",
+        age       : 21,
+        eyeColor  : "brown"
+        };
 
-        document.getElementById("demo").innerHTML =
+        document.getElementById("amber").innerHTML =
         person.firstName + " is " + person.age + " years old and has " + person.eyeColor + " eyes." ;
 
+        document.getElementById("chris").innerHTML = 
+        person2.firstName + " is " + person2.age + " years old and has " + person2.eyeColor + " eyes." ;
         
     </script>
 
-<p>This paragraph was made by an object name "person".</p>
-
 <hr>
-<p id="p1">Hello World!</p>
-<p id="p2">Hello World!</p>
+   <!---------- Change font color, size, etc. using a script  -------------->
+    <div><p id="p1">Hello World!</p>
 
-    <script>
-        document.getElementById("p2").style.color = "blue";
-        document.getElementById("p2").style.fontFamily = "Arial";
-        document.getElementById("p2").style.fontSize = "larger";
+    <button onclick="myChangeFunction()">Click me</button>
+<p>Click the button to change the sentence above</p>
+<p class="info">This sentence was changed by a script</p></div>
+   <script>
+     function myChangeFunction() {    
+        document.getElementById("p1").style.color = "blue";
+        document.getElementById("p1").style.fontFamily = "Arial";
+        document.getElementById("p1").style.fontFamily = "Bold";
+        document.getElementById("p1").style.fontSize = "50px";
+    }
     </script>
-
-<p>The paragraph above was changed by a script.</p>
 <hr>
-
+   <!---------------- Add and delete cells in a table  -------------->
+<div>
 <h2>What is your favorite color?</h2>
 <table id="myTable">
     <tr>
@@ -96,9 +112,13 @@
             <td>Favorite Color</td>
             <td><input type="text" id="color" value="Enter text here"/></td>
         </tr>
-    </table>
+    </table> 
 
-        <script>
+    <br>
+            <button onclick="myCreateFunction()">Create</button>
+            <button onclick="myDeleteFunction()">Delete</button>
+</div>
+     <script>
 
             function myCreateFunction() {
             var table = document.getElementById("myTable");
@@ -122,9 +142,49 @@
             document.getElementById("myTable").deleteRow(-1);
             }
         </script>
-            <br>
-            <button onclick="myCreateFunction()">Create</button>
-            <button onclick="myDeleteFunction()">Delete</button>
+        
+        <hr>
+           <!---------- Create a model using CSS and JavaScript ----------->
+        <div>
+            <p class="info">In this example, CSS is used to create a modal (dialog box) that is hidden by default.
+JavaScript is used to trigger the modal and to display the current image inside the modal when it is clicked on. 
+Also note that the value from the image's "alt" attribute is used as an image caption text inside the modal.<p>
+
+  <img id="myImg" src="https://scontent-mia1-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/11059763_1028759463801344_2825317106640760231_n.jpg?oh=e0eeea10bc9af1872c0da7681ebcac93&oe=5753F15F" alt="Charleston, SC" width="300" height="200">
+</div>
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">Exit</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+        
     </body>
 </html>
+
 
