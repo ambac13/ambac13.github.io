@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>   <title> Example</title></head>
+<body>
+       <ul> 
+        <li><a href = "index.html">Homepage</a><li>    
+        <li><a href = "reflections.html">Reflections & Teachings</a></li> 
+        <li><a href = "JavaScriptObjects.html">JavaScript Objects</a></li>
+        <li><a href = "Weather.html">Weather</a></li>
+        <li><a href = "Animation.html">Animation</a></li>
+        <li><a href = "Media.html">Media</a></li> 
+        <li><a class ="active" href = "cities.html">Cities</a></li> 
+        </ul>
+        <link rel="stylesheet" type="text/css" href="Background.css" />
+     <script src="cities.js"></script>
+   
+  <h1> 10 Largest Cities </h1>
+  
+    <div class="main">
+        
+             <p>Select the country that you would like to see the 10 largest cities</p>
+      <form action="">
+        <textarea id="text" rows="11"
+                  cols="40" readonly="readonly"></textarea>
+
+        <p><input type="radio" id="unitedstates" name="countries"
+           onclick="loadDocument('usa.txt');"/>United States
+        <input type="radio" id="mexico" name="countries"
+            onclick="loadDocument('mexico.txt');"/>Mexico
+        <input type="radio" id="canada" name="countries"
+            onclick="loadDocument('canada.txt');"/>Canada
+        <input type="radio" id="russia" name="countries"
+          onclick="loadDocument('russia.txt');"/>Russia</p>
+      </form>
+        </div>
+        
+  <div>
+             <p>Enter a URL and click "Get Page" to load the page below </p>          
+      <form action="">
+        <input type="button" id="webbutton" value="Get Page"
+               onclick="loadPage(getElementById('pageurl').value);"/>
+        <input type="text" id="pageurl" size="65"/>
+      </form>
+      <div id="newPage">
+      </div>
+  </div>
+  
+</body>
+</html>
